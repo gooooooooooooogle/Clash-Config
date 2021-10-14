@@ -34,6 +34,9 @@ jobs:
           git config --local user.email "1185025336@qq.com"
           git config --local user.name "gooooooooooooogle"
 
+      - name: 安装依赖
+        run: npm install
+          
       - name: 运行
         run: npm start
 
