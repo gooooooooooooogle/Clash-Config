@@ -16,7 +16,7 @@ function main () {
 
 		*/
 
-		path = html.match(/clash\(请开启代理后再拉取\)：(.+?)<\/div>/g)[1]; 
+		path = html.match(/clash\(请开启代理后再拉取\)：(.+?)<\/div>/)
 
 
 		// let path = content.slice(0, len)
