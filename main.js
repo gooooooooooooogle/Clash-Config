@@ -17,8 +17,13 @@ function main () {
 		path = path.replace(/amp;/g, '')
 		console.log('Config配置文件路径:' + path)
 
+		console.log('Config配置文件类型:' + typeof path)
+
 		if (path && path.length > 0) {
 			axios.get(path).then(response => {
+
+				console.log('response类型:' + typeof response)
+				
 				fs.writeFile('./Clash.yaml', response, err => {
 					if (err) 
 						console.log('error') 
