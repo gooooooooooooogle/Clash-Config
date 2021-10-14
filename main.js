@@ -14,13 +14,14 @@ function main () {
 		const len = content.indexOf(end_key)
 		let path = content.slice(0, len)
 
-		console.log('path:' + path)
+		path = path.replace(/amp;/g, '')
+		console.log('Config配置文件路径:' + path)
 
 		if (path && path.length > 0) {
 			axios.get(path).then(response => {
 				fs.writeFile('./Clash.yaml', response, err => {
 					if (err) 
-						console.log('error', err.message) 
+						console.log('error') 
 					else 
 						console.log('success')	
 				})
