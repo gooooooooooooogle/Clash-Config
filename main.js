@@ -18,13 +18,11 @@ function main () {
 
 		path = html.match(/clash\(请开启代理后再拉取\)：(.+?)<\/div>/)
 
-
 		// let path = content.slice(0, len)
 
-		path = path.replace(/amp;/g, '')
 		console.log('Config配置文件路径:' + path)
-
 		console.log('Config配置文件类型:' + typeof path)
+		path = path.replace(/amp;/g, '')
 
 		if (path && path.length > 0) {
 			axios.get(path).then(response => {
