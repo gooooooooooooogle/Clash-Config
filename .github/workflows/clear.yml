@@ -1,4 +1,5 @@
 name: 每周清理
+
 on:
   workflow_dispatch:
   schedule:
@@ -7,13 +8,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: 删除提交记录  
-    - uses: actions/checkout@v2
-      run: |
-        git config --global user.name "gooooooooooooogle" 
-        git config --global user.email "1185025336@qq.com"
-        git checkout --orphan new_branch
-        git commit -m "初始化仓库"
-        git branch -D main
-        git branch -m main
-        git push -f origin main
+      - name: 拉取代码
+        uses: actions/checkout@v2
+        
+      - name: 删除提交记录
+        run: |
+          git config --global user.name "gooooooooooooogle" 
+          git config --global user.email "1185025336@qq.com"
+          git checkout --orphan new_branch
+          git commit -m "初始化仓库"
+          git branch -D main
+          git branch -m main
+          git push -f origin main
