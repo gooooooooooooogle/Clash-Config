@@ -15,7 +15,7 @@ function main () {
 		let path = content.slice(0, len)
 
 		console.log('path:' + path)
-		
+
 		if (path && path.length > 0) {
 			axios.get(path).then(response => {
 				fs.writeFile('./Clash.yaml', response, err => {
