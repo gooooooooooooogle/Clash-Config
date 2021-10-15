@@ -12,7 +12,7 @@ function getPath () {
 	const url = "http://feeds.feedburner.com/mattkaydiary/pZjG"
 	axios.get(url).then(response => {
 		const html = response.data || ""
-		let pathArr = html.match(/(?<=clash\(请开启代理后再拉取\)：)(.*?)(?=&lt;\/div&gt)/g) || []
+		let pathArr = html.match(/(?<=clash\(请开启代理后再拉取\)：)(.*?)(?=&lt;\/div&gt)/g)
 		let path = ""
 		if (pathArr.length > 0) {
 			path = pathArr[0].replace(/amp;/g, '')
