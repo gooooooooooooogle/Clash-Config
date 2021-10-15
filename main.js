@@ -9,10 +9,10 @@ function main () {
 	})
 }
 
-function async getPath () {
+async function getPath () {
 	const url = "http://feeds.feedburner.com/mattkaydiary/pZjG"
 	let response = await axios.get(url)
-	
+
 	const html = response.data || ""
 	let pathArr = html.match(/(?<=clash\(请开启代理后再拉取\)：)(.*?)(?=&lt;\/div&gt)/g) || []
 	console.log('pathArr：' + pathArr)
