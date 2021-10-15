@@ -1,12 +1,11 @@
 const axios = require('axios')
 const fs = require('fs')
 
-function main () {
-	getPath().then(path => {
-		console.log('Config路径：' + path)
-		if (path === '') return
-		getClashConfig(path)
-	})
+async function main () {
+	const path = await getPath()
+	console.log('Config路径：' + path)
+	if (path === '') return
+	getClashConfig(path)
 }
 
 async function getPath () {
