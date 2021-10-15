@@ -17,7 +17,7 @@ function getPath () {
 			path = pathArr[0].replace(/amp;/g, '')
 		}
 		return path
-	}
+	})
 }
 
 function getClashConfig (path) {
