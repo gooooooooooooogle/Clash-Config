@@ -3,22 +3,24 @@ const fs = require('fs')
 
 function main () {
 	let path = getPath()
+	console.log('Config路径：' + path)
 	if (path === '') return
 	getClashConfig(path)
 }
 
 function getPath () {
-	let url = 'http://feeds.feedburner.com/mattkaydiary/pZjG'
+	const url = "http://feeds.feedburner.com/mattkaydiary/pZjG"
 	axios.get(url).then(response => {
-		const html = response.data || ''
+		const html = response.data || ""
 		let pathArr = html.match(/(?<=clash\(请开启代理后再拉取\)：)(.*?)(?=&lt;\/div&gt)/g) || []
-		let path = ''
+		let path = ""
 		if (pathArr.length > 0) {
 			path = pathArr[0].replace(/amp;/g, '')
 		}
 		return path
 	})
 }
+
 
 function getClashConfig (path) {
 	axios.get(path).then(response => {
