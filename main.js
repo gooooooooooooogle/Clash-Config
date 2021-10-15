@@ -6,7 +6,7 @@ function main () {
 	axios.get(url).then(response => {
 		const html = response.data 
 		let path = html.match(/(?<=clash\(请开启代理后再拉取\)：)(.*?)(?=&lt;\/div&gt)/g)
-		
+
 		console.log('路径:' + path)
 		console.log('path类型:' + typeof path)
 		if (path.length > 0) {
@@ -17,8 +17,9 @@ function main () {
 				axios.get(path).then(response => {
 
 					console.log('response类型:' + typeof response)
+					console.log('response.data类型:' + typeof response.data)
 
-					fs.writeFile('./Clash.yaml', response, err => {
+					fs.writeFile('./Clash.yaml', response.data, err => {
 						if (err) 
 							console.log('error') 
 						else 
