@@ -2,17 +2,19 @@ const axios = require('axios')
 const fs = require('fs')
 
 function main () {
-	let path = getPath()
-	console.log('Config路径：' + path)
-	if (path === '') return
-	getClashConfig(path)
+	getPath().then(path => {
+		console.log('Config路径：' + path)
+		if (path === '') return
+		getClashConfig(path)
+	})
 }
 
-function getPath () {
+function async getPath () {
 	const url = "http://feeds.feedburner.com/mattkaydiary/pZjG"
 	axios.get(url).then(response => {
 		const html = response.data || ""
-		let pathArr = html.match(/(?<=clash\(请开启代理后再拉取\)：)(.*?)(?=&lt;\/div&gt)/g)
+		let pathArr = html.match(/(?<=clash\(请开启代理后再拉取\)：)(.*?)(?=&lt;\/div&gt)/g) || []
+		console.log('pathArr：' + pathArr)
 		let path = ""
 		if (pathArr.length > 0) {
 			path = pathArr[0].replace(/amp;/g, '')
