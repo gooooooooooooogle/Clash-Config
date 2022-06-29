@@ -40,10 +40,10 @@ jobs:
       - name: 清理
         run: node null.js
 
-      - name: 提交清理
-        run: |
-          git add .
-          git commit -m "clearFile"    
+      # - name: 提交清理
+      #   run: |
+      #     git add .
+      #     git commit -m "clearFile"    
 
       - name: 运行
         run: npm start
@@ -51,7 +51,8 @@ jobs:
       - name: 提交
         run: |
           git add .
-          git commit -m "$(date '+%Y-%m-%d %H:%M:%S') 更新订阅链接"
+          git commit -m "更新订阅链接"
+        #   git commit -m "$(date '+%Y-%m-%d %H:%M:%S') 更新订阅链接"
 
       - name: Push
         uses: ad-m/github-push-action@master
