@@ -9,6 +9,7 @@ async function main () {
 }
 
 async function getPath () {
+	// 地址已失效
 	const url = "http://feeds.feedburner.com/mattkaydiary/pZjG"
 	let response = await axios.get(url)
 

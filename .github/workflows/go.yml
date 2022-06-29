@@ -43,7 +43,7 @@ jobs:
       - name: 提交清理
         run: |
           git add .
-          git commit -m "clearFile"    
+          git commit -m "clearFile"
 
       - name: 运行
         run: npm start
